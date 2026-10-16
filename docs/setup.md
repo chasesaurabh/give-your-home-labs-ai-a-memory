@@ -18,6 +18,19 @@ Open `http://127.0.0.1:8765/`. Choose Reading Desk. Inspect selection without a 
 
 For an already installed Ollama service with a downloaded local model, set `MEMORY_MODEL` to the exact local model identifier. The default backend is `ollama`, at `http://127.0.0.1:11434`. Configure Ollama's server-side cloud-disable option using its official documentation. Never select a cloud model for this book's local path.
 
+If you need an engine, follow the [official Windows setup](https://docs.ollama.com/windows). Set `OLLAMA_NO_CLOUD=1` in the engine's environment or its documented server configuration, restart that engine, and verify its cloud-disabled log entry. A setting in a different terminal does not reconfigure an existing process. Then, for a small connectivity demonstration:
+
+```powershell
+ollama pull qwen3:0.6b
+ollama list
+$env:MEMORY_BACKEND = 'ollama'
+$env:MEMORY_MODEL_URL = 'http://127.0.0.1:11434'
+$env:MEMORY_MODEL = 'qwen3:0.6b'
+py -3.11 -m memory_companion --data data/demo.sqlite serve
+```
+
+This small checkpoint was directly exercised on a CPU-only isolated Ollama 0.40.5 service. It recovered the shell preference but produced citation failures and an invalid proposal key. It is a connection example, not a quality recommendation for every workflow. Retain explicit saves, evaluate actual outputs, and choose an appropriate downloaded model for your tasks. The [version matrix](version-matrix.md) records the digest and limits.
+
 For a local compatible inference service, set these before launching; replace the port and model with the ones your actual local server exposes:
 
 ```powershell

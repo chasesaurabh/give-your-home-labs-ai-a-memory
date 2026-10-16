@@ -10,7 +10,7 @@ import unittest
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
-from memory_companion.model import Model, local_url, messages_for, suggest
+from memory_companion.model import Model, local_url, messages_for, suggest, citation_check
 from memory_companion.server import make_server
 from memory_companion.store import Store, Conflict
 
@@ -210,6 +210,16 @@ class StoreTests(unittest.TestCase):
 
 
 class ModelBoundaryTests(unittest.TestCase):
+    def test_invented_citation_flagged_without_rewriting_the_answer(self):
+        report = citation_check("An unsupported claim [memory:ID]", {"records": [{"id": "real"}]})
+        self.assertFalse(report["id_check_passed"])
+        self.assertEqual(report["invalid_ids"], ["ID"])
+        valid = citation_check("A claim [memory:real]", {"records": [{"id": "real"}]})
+        self.assertTrue(valid["id_check_passed"])
+        self.assertIn("factual support still needs review", valid["notice"])
+        mixed = citation_check("[Memory: imaginary] and [MEMORY: real ]", {"records": [{"id": "real"}]})
+        self.assertEqual(mixed["invalid_ids"], ["imaginary"])
+
     def test_explicit_cloud_model_identifier_is_rejected(self):
         with self.assertRaises(ValueError):
             Model(name="example:cloud")

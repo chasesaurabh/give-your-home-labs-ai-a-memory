@@ -8,7 +8,7 @@ import sqlite3
 from urllib.parse import urlsplit, parse_qs
 
 from . import __version__
-from .model import Model, messages_for, suggest
+from .model import Model, messages_for, suggest, citation_check
 from .store import Store, Conflict, text
 
 
@@ -114,7 +114,8 @@ def make_server(store, model, port=8765):
                         selection = {**selection, "records": [], "characters": 0}
                     messages = messages_for(question, selection)
                     answer = model.complete(messages)
-                    result = {"answer": answer, "selection": selection, "request_messages": messages}
+                    result = {"answer": answer, "selection": selection, "request_messages": messages,
+                              "citation_check": citation_check(answer, selection)}
                 elif route == "/api/suggest":
                     result = suggest(model, store, body["project"], body["statement"])
                 elif route == "/api/review":

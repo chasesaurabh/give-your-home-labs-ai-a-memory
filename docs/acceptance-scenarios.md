@@ -2,9 +2,9 @@
 
 The [scenario pack](../fixtures/acceptance-scenarios.json) defines fourteen intended checks for the four cumulative book projects. They are specifications, not passing test results. Each names the relevant chapter, synthetic starting state, user action, deterministic storage expectation, model behavior to evaluate, and evidence needed.
 
-Storage-only probe tests cover a small subset of these mechanisms. A scenario remains not run until its complete stated workflow is reproduced. Do not replace a local-model evaluation with a mocked reply or use a database assertion to claim the interface works.
+The automated suite and eighteen chapter checkpoints cover deterministic mechanisms. A scenario is not a completed full workflow until its stated interface and actual-model evidence are also reviewed. Do not replace a local-model evaluation with a mocked reply or use a database assertion to claim the interface works.
 
-The [worksheets](../templates/memory-worksheets.json) cover preferences, decisions, handoffs, incidents, and procedures. They are blank review aids, not a finalized database or import format. Fill them with synthetic data while learning. The complete application will define and validate its own versioned import contract.
+The [worksheets](../templates/memory-worksheets.json) cover preferences, decisions, handoffs, incidents, and procedures. They are blank review aids, not an import file. Fill them with synthetic data while learning. The application validates its own `homelab-memory-v1` export/import contract.
 
 ## Evaluating a scenario
 

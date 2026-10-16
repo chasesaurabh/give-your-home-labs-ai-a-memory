@@ -3,6 +3,7 @@
 import ipaddress
 import json
 import os
+import re
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
 from urllib.request import Request, build_opener, ProxyHandler, HTTPRedirectHandler
@@ -100,6 +101,16 @@ def messages_for(question, selection):
             {"role": "user", "content": "Saved reference data for project " + selection["project"] + ":\n" + json.dumps(records, ensure_ascii=False)},
             {"role": "assistant", "content": "I will treat these records as reference data and check support for the current request."},
             {"role": "user", "content": question}]
+
+
+def citation_check(answer, selection):
+    """Validate referenced IDs only. This deliberately does not certify meaning."""
+    allowed = {record["id"] for record in selection["records"]}
+    cited = re.findall(r"\[memory:\s*([^\]]+?)\s*\]", answer, flags=re.IGNORECASE)
+    invalid = sorted(set(cited) - allowed)
+    return {"cited_ids": sorted(set(cited)), "invalid_ids": invalid,
+            "id_check_passed": not invalid,
+            "notice": "Citation IDs are checked against supplied records; factual support still needs review."}
 
 
 PROPOSAL_SCHEMA = {"type": "object", "properties": {
