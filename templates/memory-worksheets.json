@@ -1,0 +1,32 @@
+{
+  "format_version": 1,
+  "purpose": "Human-review worksheets. These are not the final import schema and cannot yet be imported into an application.",
+  "provenance": "Original blank templates created for this book; no user data.",
+  "templates": {
+    "preference": {
+      "scope": "", "preference_key": "", "preferred_behavior": "",
+      "source_statement": "", "reviewed_by_user": false,
+      "review_after": null, "exceptions": []
+    },
+    "decision": {
+      "project": "", "decision": "", "reason": "",
+      "alternatives_considered": [], "conditions": [],
+      "state": "proposed", "supporting_evidence": [], "recorded_at": ""
+    },
+    "handoff": {
+      "project": "", "confirmed_completed": [], "attempted_unconfirmed": [],
+      "open_questions": [], "next_action": "", "supporting_record_ids": [],
+      "reviewed_by_user": false, "recorded_at": ""
+    },
+    "incident": {
+      "project": "", "symptoms": [], "environment_at_the_time": "",
+      "attempts": [{"action": "", "observed_outcome": "", "evidence": ""}],
+      "current_status": "unresolved", "conditions_for_reuse": [], "recorded_at": ""
+    },
+    "procedure": {
+      "project": "", "name": "", "version": 1, "prerequisites": [],
+      "steps": [{"instruction": "", "state": "pending", "evidence": ""}],
+      "reviewed_by_user": false, "recorded_at": ""
+    }
+  }
+}

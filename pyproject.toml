@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "homelab-memory-companion"
+version = "0.1.0"
+description = "An inspectable local AI memory companion for preferences and projects"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+memory-companion = "memory_companion.__main__:main"
+
+[tool.setuptools.package-data]
+memory_companion = ["static/*"]
+
+[tool.setuptools.packages.find]
+include = ["memory_companion*"]
