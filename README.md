@@ -2,7 +2,7 @@
 
 Build a local assistant that carries selected preferences and project context into a fresh conversation. Inspect what it remembers, see what was supplied to the model, and correct or forget records deliberately.
 
-Companion code for the forthcoming book by Saurabh Chase. The book is in production. This repository contains a working development application; the first-edition code tag and verified retailer link will be added when available. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
+Companion code for the forthcoming book by Saurabh Chase. The book is in production. The first-edition code is frozen as [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0); use that edition reference for the printed examples. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
 
 ![The real Memory Companion answering a project-handoff question with a local model and synthetic records](docs/images/project-handoff.jpg)
 
@@ -51,12 +51,12 @@ The main source is in `memory_companion/`: `store.py` owns lifecycle and retriev
 
 Run all eighteen disposable chapter checkpoints with `py -3.11 examples/chapter_lab.py --all`, or replace `--all` with one chapter number. These assert specific storage and application properties without calling a model. `examples/memory_agent.py` adds an optional local tool-calling example limited to scoped recall, with no memory writes or shell execution. `examples/evaluate_cpu.py` is a separate optional CPU experiment with pinned Qwen3-0.6B weights; it requires extra libraries and preserves actual outputs, including failures. See [evaluation examples](docs/evaluation.md).
 
-Tests using a model double prove integration behavior, not model answer quality. The [version matrix](docs/version-matrix.md) identifies direct verification and pending engine/platform coverage. The large development checkpoint is not a minimum reader hardware recommendation. The immutable first-edition tag is frozen only after release checks.
+Tests using a model double prove integration behavior, not model answer quality. The [version matrix](docs/version-matrix.md) identifies direct verification and pending engine/platform coverage. The large development checkpoint is not a minimum reader hardware recommendation. [BOOK_EDITION.json](BOOK_EDITION.json) maps all eighteen chapters to their labs and source files. Application package version 0.1.0 and first-edition book tag book-v1.0.0 identify different things.
 
 ## Data boundary
 
 Do not commit user memories, databases, exports, backups, credentials, private logs, model weights, or book prose. Examples use original synthetic values. Forget in the storage example means logical removal from lookup; no physical-media erasure guarantee is made.
 
-The first edition will cite an immutable code release with the tested versions and chapter map. Development on the default branch can change. The published-book link will be added after a verified public listing exists. No retailer URL is available yet.
+The first edition cites the immutable code release with the tested versions and chapter map. Development on the default branch can change. The published-book link will be added after a verified public listing exists. No retailer URL is available yet.
 
 See [LICENSE](LICENSE), [SECURITY.md](SECURITY.md), [third-party notices](THIRD_PARTY_NOTICES.md), and [contribution guidance](CONTRIBUTING.md). Installed model weights and runtimes retain their own licenses.

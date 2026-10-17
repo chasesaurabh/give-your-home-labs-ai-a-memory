@@ -1,0 +1,37 @@
+{
+  "book": "Give Your Home Lab’s AI a Memory",
+  "edition": "First edition, 2026",
+  "code_tag": "book-v1.0.0",
+  "application_package_version": "0.1.0",
+  "license": "MIT for original companion code and synthetic materials; book text/artwork excluded",
+  "runtime": "Python 3.11 or later; no third-party core runtime packages",
+  "verification_platform": "Windows / Python 3.11.9 / SQLite 3.45.1",
+  "deterministic_checks": {"automated_tests": 45, "chapter_labs": 18},
+  "actual_local_model_paths": [
+    "Compatible local vLLM 0.30.0 / NVIDIA Nemotron 3 Super 120B-A12B NVFP4",
+    "Native Ollama 0.40.5 portable CPU / qwen3:0.6b Q4_K_M",
+    "Separate optional direct Transformers CPU probe / pinned Qwen3-0.6B"
+  ],
+  "evidence_boundary": "Integration checks, interface observations and actual model semantics are separate. Small-model and bounded-agent failures are retained; this is not an accuracy benchmark or universal hardware recommendation.",
+  "chapter_map": [
+    {"chapter": 1, "lab": "examples/chapter_lab.py 1", "source": "memory_companion/model.py"},
+    {"chapter": 2, "lab": "examples/chapter_lab.py 2", "source": "examples/seed_demo.py"},
+    {"chapter": 3, "lab": "examples/chapter_lab.py 3", "source": "examples/01_first_memory.py"},
+    {"chapter": 4, "lab": "examples/chapter_lab.py 4", "source": "memory_companion/store.py"},
+    {"chapter": 5, "lab": "examples/chapter_lab.py 5", "source": "memory_companion/store.py"},
+    {"chapter": 6, "lab": "examples/chapter_lab.py 6", "source": "memory_companion/static/app.js"},
+    {"chapter": 7, "lab": "examples/chapter_lab.py 7", "source": "memory_companion/model.py"},
+    {"chapter": 8, "lab": "examples/chapter_lab.py 8", "source": "memory_companion/store.py"},
+    {"chapter": 9, "lab": "examples/chapter_lab.py 9", "source": "templates/memory-worksheets.json"},
+    {"chapter": 10, "lab": "examples/chapter_lab.py 10", "source": "memory_companion/static/app.js"},
+    {"chapter": 11, "lab": "examples/chapter_lab.py 11", "source": "memory_companion/store.py"},
+    {"chapter": 12, "lab": "examples/chapter_lab.py 12", "source": "memory_companion/store.py"},
+    {"chapter": 13, "lab": "examples/chapter_lab.py 13", "source": "memory_companion/store.py"},
+    {"chapter": 14, "lab": "examples/chapter_lab.py 14", "source": "memory_companion/__main__.py"},
+    {"chapter": 15, "lab": "examples/chapter_lab.py 15", "source": "examples/evaluate_local.py"},
+    {"chapter": 16, "lab": "examples/chapter_lab.py 16", "source": "examples/seed_demo.py"},
+    {"chapter": 17, "lab": "examples/chapter_lab.py 17", "source": "memory_companion/static/app.js"},
+    {"chapter": 18, "lab": "examples/chapter_lab.py 18", "source": "examples/memory_agent.py"}
+  ],
+  "book_listing": "Not yet available; add verified live listing to README after publication without moving this tag."
+}
