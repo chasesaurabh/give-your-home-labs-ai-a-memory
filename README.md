@@ -2,7 +2,7 @@
 
 Build a local assistant that carries selected preferences and project context into a fresh conversation. Inspect what it remembers, see what was supplied to the model, and correct or forget records deliberately.
 
-Companion code for the forthcoming book by Saurabh Chase. The book is in production. The first-edition code is frozen as [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0); use that edition reference for the printed examples. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
+Companion code for [Give Your Home Lab’s AI a Memory](https://www.amazon.com/dp/B0HNFNC4M3) by Saurabh Chase. The first-edition code is frozen as [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0); use that edition reference for the printed examples. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
 
 ![The real Memory Companion answering a project-handoff question with a local model and synthetic records](docs/images/project-handoff.jpg)
 
@@ -57,6 +57,10 @@ Tests using a model double prove integration behavior, not model answer quality.
 
 Do not commit user memories, databases, exports, backups, credentials, private logs, model weights, or book prose. Examples use original synthetic values. Forget in the storage example means logical removal from lookup; no physical-media erasure guarantee is made.
 
-The first edition cites the immutable code release with the tested versions and chapter map. Development on the default branch can change. The published-book link will be added after a verified public listing exists. No retailer URL is available yet.
+The first edition cites the immutable code release with the tested versions and chapter map. Development on the default branch can change. Read the [Kindle edition](https://www.amazon.com/dp/B0HNFNC4M3) or choose the paperback from its Amazon listing.
 
 See [LICENSE](LICENSE), [SECURITY.md](SECURITY.md), [third-party notices](THIRD_PARTY_NOTICES.md), and [contribution guidance](CONTRIBUTING.md). Installed model weights and runtimes retain their own licenses.
+
+## Choose your next project
+
+[Start here: choose a Practical AI Home Lab book](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/blob/codex/memory-companion/docs/start-here.md), or [browse the series on Amazon](https://www.amazon.com/dp/B0HP7F73K4). Each book can be read on its own.
