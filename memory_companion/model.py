@@ -35,7 +35,8 @@ class Model:
             raise ValueError("Backend must be ollama or compatible.")
         self.url = local_url(url or os.getenv("MEMORY_MODEL_URL", "http://127.0.0.1:11434"))
         self.name = name or os.getenv("MEMORY_MODEL", "")
-        if ":cloud" in self.name.lower():
+        identifier = self.name.strip().lower()
+        if ":cloud" in identifier or identifier.endswith("-cloud"):
             raise ValueError("Choose downloaded local weights; cloud model identifiers are not supported.")
         self.timeout = timeout
         self.opener = build_opener(ProxyHandler({}), NoRedirect())

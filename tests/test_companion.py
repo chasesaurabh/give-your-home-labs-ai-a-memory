@@ -7,6 +7,7 @@ import sys
 import tempfile
 import threading
 import unittest
+from unittest.mock import patch
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
@@ -239,6 +240,22 @@ class ModelBoundaryTests(unittest.TestCase):
     def test_explicit_cloud_model_identifier_is_rejected(self):
         with self.assertRaises(ValueError):
             Model(name="example:cloud")
+
+    def test_cloud_suffix_is_rejected_before_http_client_creation(self):
+        for backend in ("ollama", "compatible"):
+            for name in ("gpt-oss:120b-cloud", "qwen3-coder:480b-cloud", " GEMMA4:CLOUD "):
+                with self.subTest(backend=backend, name=name):
+                    with patch("memory_companion.model.build_opener") as opener:
+                        with self.assertRaisesRegex(ValueError, "downloaded local weights"):
+                            Model(backend=backend, name=name)
+                        opener.assert_not_called()
+
+    def test_cloud_environment_configuration_is_rejected(self):
+        with patch.dict("os.environ", {"MEMORY_MODEL": "gpt-oss:120b-cloud"}):
+            with self.assertRaisesRegex(ValueError, "downloaded local weights"):
+                Model()
+        for name in ("qwen3:0.6b", "memory-2b", "cloudberry:latest"):
+            self.assertEqual(Model(name=name).name, name)
 
     def test_only_loopback_endpoints_are_allowed(self):
         for value in ("http://127.0.0.1:8100/v1", "http://localhost:11434", "http://[::1]:11434"):

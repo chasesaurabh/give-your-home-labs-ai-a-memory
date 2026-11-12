@@ -2,6 +2,7 @@
 
 ## 0.2.0
 
+- Rejects explicit `:cloud` and `-cloud` model identifiers before creating an HTTP client, including environment-variable configuration.
 - Captures preference identity and revision before model inference, and rejects a suggestion if the record changes while the model is responding.
 - Exports projects, aliases and memories from one consistent SQLite read transaction.
 - Adds structured JSON editing for handoffs, incidents and decisions. Procedure progress keeps its dedicated controls.
