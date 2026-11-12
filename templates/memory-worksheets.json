@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "purpose": "Human-review worksheets. These are not the final import schema and cannot yet be imported into an application.",
+  "purpose": "Human-review worksheets, not companion import documents. Use the application editor to save reviewed fields; use its versioned export format for transfer.",
   "provenance": "Original blank templates created for this book; no user data.",
   "templates": {
     "preference": {

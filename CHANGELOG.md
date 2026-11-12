@@ -6,6 +6,7 @@
 - Exports projects, aliases and memories from one consistent SQLite read transaction.
 - Adds structured JSON editing for handoffs, incidents and decisions. Procedure progress keeps its dedicated controls.
 - Clears stale cards when switching projects and limits pending proposals to the selected project and global scope, including earlier-name aliases.
+- Allows an expired suggestion to be rejected while still preventing its approval; discarding it leaves approved memories unchanged.
 - Adds hash-verified model acquisition, a pinned loopback-only GPU launcher and complete synthetic model-study collectors.
 - Includes original study requests, all retained model responses, separate case annotations and a calculation script. These diagnostics include semantic failures; they do not certify model accuracy.
 - Adds a complete portable import fixture and an ordinary reader-facing chapter guide.

@@ -135,6 +135,22 @@ class StoreTests(unittest.TestCase):
             self.store.review(proposal["id"], True)
         self.assertEqual(self.store.get(record["id"])["content"], "Later approved edit")
 
+    def test_expired_proposal_can_be_rejected_without_changing_memories(self):
+        self.save(content="Keep this approved preference unchanged.")
+        proposal = self.store.propose(dict(scope="global", kind="preference", key="old-style",
+                                           content="Discard this expired candidate", source="Synthetic review"))
+        with self.store.db() as db:
+            db.execute("UPDATE proposals SET created_at=? WHERE id=?",
+                       ((datetime.now(timezone.utc) - timedelta(hours=2)).isoformat(), proposal["id"]))
+        before = self.store.export()["memories"]
+        with self.assertRaises(Conflict):
+            self.store.review(proposal["id"], True)
+        self.assertEqual(self.store.review(proposal["id"], False), {"rejected": proposal["id"]})
+        self.assertEqual(self.store.export()["memories"], before)
+        self.assertEqual(self.store.proposals(), [])
+        with self.assertRaises(ValueError):
+            self.store.review(proposal["id"], False)
+
     def test_expired_proposal_cannot_be_approved(self):
         proposal = self.store.propose(dict(scope="global", kind="preference", key="style", content="Brief", source="explicit"))
         with self.store.db() as db:

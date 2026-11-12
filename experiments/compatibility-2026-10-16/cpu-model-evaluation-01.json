@@ -1,0 +1,683 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "device": "cpu",
+  "torch": "2.12.0.dev20260329+cu128",
+  "transformers": "4.51.0",
+  "threads": 4,
+  "started_at": "2026-10-16T22:56:31.674878+00:00",
+  "sampling": {
+    "do_sample": false,
+    "enable_thinking": false,
+    "max_new_tokens": 256
+  },
+  "notice": "Small-model probe with greedy non-thinking decoding, not a vendor-recommended general-quality benchmark. No GPU inference or cloud requests.",
+  "cases": [
+    {
+      "id": "shell",
+      "use_memory": false,
+      "question": "Which shell should command examples use for Reading Desk?",
+      "selected_records": [],
+      "answer": "The shell command examples for Reading Desk are not provided in the saved reference data. Please provide the specific shell commands for reference.",
+      "elapsed_seconds": 3.828,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "shell",
+      "use_memory": true,
+      "question": "Which shell should command examples use for Reading Desk?",
+      "selected_records": [
+        {
+          "id": "357611974f454648b4acbddf70f010db",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "shell",
+          "content": "Use PowerShell examples for this project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.742589+00:00",
+          "updated_at": "2026-10-16T22:56:31.742589+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 5
+        },
+        {
+          "id": "e9c674d6efc84ee0986a7701247ee83b",
+          "scope": "project:reading-desk",
+          "kind": "incident",
+          "key": "wrong-port",
+          "content": "A synthetic Reading Desk connection failed on port 8766. The app was listening on 8765. Correcting the address restored access.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "environment": "Synthetic demo",
+            "attempts": [
+              {
+                "action": "Restart browser",
+                "outcome": "No change"
+              },
+              {
+                "action": "Correct port to 8765",
+                "outcome": "Access restored"
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.800147+00:00",
+          "updated_at": "2026-10-16T22:56:31.800147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "7ff1e471076346cfbd4cb33dea3419cb",
+          "scope": "project:reading-desk",
+          "kind": "handoff",
+          "key": "latest-session",
+          "content": "Export was verified. Restore rehearsal has not been tested. Next action: rehearse a restore into a separate disposable data directory.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "completed": [
+              "Export"
+            ],
+            "attempted": [],
+            "next_action": "Rehearse restore",
+            "reviewed": true
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.789147+00:00",
+          "updated_at": "2026-10-16T22:56:31.789147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "bacf700610494012b5632cda3a84f8a4",
+          "scope": "project:reading-desk",
+          "kind": "decision",
+          "key": "database-location",
+          "content": "Keep the Reading Desk database on the mini PC, not the NAS. The reason is simpler local recovery.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "state": "approved",
+            "conditions": [
+              "Single-user local application"
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.780148+00:00",
+          "updated_at": "2026-10-16T22:56:31.780148+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "b630184dcdf74856bd458a9aba571a0b",
+          "scope": "project:reading-desk",
+          "kind": "decision",
+          "key": "project-name",
+          "content": "Shelf was the earlier name of Reading Desk. They are one project; Shelf is historical reference, not another outstanding project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "state": "confirmed",
+            "evidence": "Synthetic owner decision"
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.766628+00:00",
+          "updated_at": "2026-10-16T22:56:31.766628+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "3f377b5febd545e3b1b855e1d05084cd",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "answer-style",
+          "content": "Prefer concise explanations, with steps when useful.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.757122+00:00",
+          "updated_at": "2026-10-16T22:56:31.757122+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        }
+      ],
+      "answer": "The shell command examples for the Reading Desk project should use the preference \"shell\" with key \"preference\" and content \"Use PowerShell examples for this project.\" The record ID is [memory:ID].",
+      "elapsed_seconds": 12.187,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "decision",
+      "use_memory": false,
+      "question": "Where did we decide to keep the Reading Desk database, and why?",
+      "selected_records": [],
+      "answer": "The decision to keep the Reading Desk database is based on its relevance to the project's goals and the current needs. The specific location and reason for its retention are not explicitly stated in the provided information. If you have more details or context, please share them so I can provide a more accurate response.",
+      "elapsed_seconds": 7.187,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "decision",
+      "use_memory": true,
+      "question": "Where did we decide to keep the Reading Desk database, and why?",
+      "selected_records": [
+        {
+          "id": "bacf700610494012b5632cda3a84f8a4",
+          "scope": "project:reading-desk",
+          "kind": "decision",
+          "key": "database-location",
+          "content": "Keep the Reading Desk database on the mini PC, not the NAS. The reason is simpler local recovery.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "state": "approved",
+            "conditions": [
+              "Single-user local application"
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.780148+00:00",
+          "updated_at": "2026-10-16T22:56:31.780148+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 4
+        },
+        {
+          "id": "e9c674d6efc84ee0986a7701247ee83b",
+          "scope": "project:reading-desk",
+          "kind": "incident",
+          "key": "wrong-port",
+          "content": "A synthetic Reading Desk connection failed on port 8766. The app was listening on 8765. Correcting the address restored access.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "environment": "Synthetic demo",
+            "attempts": [
+              {
+                "action": "Restart browser",
+                "outcome": "No change"
+              },
+              {
+                "action": "Correct port to 8765",
+                "outcome": "Access restored"
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.800147+00:00",
+          "updated_at": "2026-10-16T22:56:31.800147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "7ff1e471076346cfbd4cb33dea3419cb",
+          "scope": "project:reading-desk",
+          "kind": "handoff",
+          "key": "latest-session",
+          "content": "Export was verified. Restore rehearsal has not been tested. Next action: rehearse a restore into a separate disposable data directory.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "completed": [
+              "Export"
+            ],
+            "attempted": [],
+            "next_action": "Rehearse restore",
+            "reviewed": true
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.789147+00:00",
+          "updated_at": "2026-10-16T22:56:31.789147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "b630184dcdf74856bd458a9aba571a0b",
+          "scope": "project:reading-desk",
+          "kind": "decision",
+          "key": "project-name",
+          "content": "Shelf was the earlier name of Reading Desk. They are one project; Shelf is historical reference, not another outstanding project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "state": "confirmed",
+            "evidence": "Synthetic owner decision"
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.766628+00:00",
+          "updated_at": "2026-10-16T22:56:31.766628+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "3f377b5febd545e3b1b855e1d05084cd",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "answer-style",
+          "content": "Prefer concise explanations, with steps when useful.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.757122+00:00",
+          "updated_at": "2026-10-16T22:56:31.757122+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "357611974f454648b4acbddf70f010db",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "shell",
+          "content": "Use PowerShell examples for this project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.742589+00:00",
+          "updated_at": "2026-10-16T22:56:31.742589+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        }
+      ],
+      "answer": "The Reading Desk database was decided to be kept on the mini PC, as per the original synthetic book demonstration, 2026-10-16. The reason is simpler local recovery.",
+      "elapsed_seconds": 11.047,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "handoff",
+      "use_memory": false,
+      "question": "Has restore been verified? What is the next action?",
+      "selected_records": [],
+      "answer": "The next action is to verify the restoration status of the referenced records. Please provide the specific records or their IDs to proceed.",
+      "elapsed_seconds": 3.219,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "handoff",
+      "use_memory": true,
+      "question": "Has restore been verified? What is the next action?",
+      "selected_records": [
+        {
+          "id": "7ff1e471076346cfbd4cb33dea3419cb",
+          "scope": "project:reading-desk",
+          "kind": "handoff",
+          "key": "latest-session",
+          "content": "Export was verified. Restore rehearsal has not been tested. Next action: rehearse a restore into a separate disposable data directory.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "completed": [
+              "Export"
+            ],
+            "attempted": [],
+            "next_action": "Rehearse restore",
+            "reviewed": true
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.789147+00:00",
+          "updated_at": "2026-10-16T22:56:31.789147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 8
+        },
+        {
+          "id": "3f377b5febd545e3b1b855e1d05084cd",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "answer-style",
+          "content": "Prefer concise explanations, with steps when useful.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.757122+00:00",
+          "updated_at": "2026-10-16T22:56:31.757122+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "357611974f454648b4acbddf70f010db",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "shell",
+          "content": "Use PowerShell examples for this project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.742589+00:00",
+          "updated_at": "2026-10-16T22:56:31.742589+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "ae14d4775a644826aadd50d2601995f7",
+          "scope": "project:reading-desk",
+          "kind": "procedure",
+          "key": "document-service",
+          "content": "Approved routine for documenting a local service. Recall does not execute commands or confirm completed work.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "version": 2,
+            "steps": [
+              {
+                "instruction": "Record the service purpose",
+                "state": "confirmed",
+                "evidence": "Synthetic owner confirmed the purpose note exists"
+              },
+              {
+                "instruction": "Verify restore in a disposable workspace",
+                "state": "attempted",
+                "evidence": "Synthetic rehearsal started, outcome not confirmed"
+              },
+              {
+                "instruction": "Write the recovery instructions",
+                "state": "pending",
+                "evidence": ""
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.825146+00:00",
+          "updated_at": "2026-10-16T22:56:31.825146+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 1
+        },
+        {
+          "id": "6e2ae0c738154b6a9d3043b793c8e909",
+          "scope": "project:reading-desk",
+          "kind": "incident",
+          "key": "stopped-service",
+          "content": "A synthetic connection failed because the companion process was stopped. Starting the process restored access on the unchanged port 8765.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "environment": "Different synthetic incident",
+            "attempts": [
+              {
+                "action": "Start stopped process",
+                "outcome": "Access restored"
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.814147+00:00",
+          "updated_at": "2026-10-16T22:56:31.814147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 1
+        },
+        {
+          "id": "e9c674d6efc84ee0986a7701247ee83b",
+          "scope": "project:reading-desk",
+          "kind": "incident",
+          "key": "wrong-port",
+          "content": "A synthetic Reading Desk connection failed on port 8766. The app was listening on 8765. Correcting the address restored access.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "environment": "Synthetic demo",
+            "attempts": [
+              {
+                "action": "Restart browser",
+                "outcome": "No change"
+              },
+              {
+                "action": "Correct port to 8765",
+                "outcome": "Access restored"
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.800147+00:00",
+          "updated_at": "2026-10-16T22:56:31.800147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 1
+        }
+      ],
+      "answer": "The next action is to \"rehearse a restore into a separate disposable data directory.\"",
+      "elapsed_seconds": 7.516,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "no-match",
+      "use_memory": false,
+      "question": "Which GPU did we buy for this project?",
+      "selected_records": [],
+      "answer": "The saved reference data for project reading-desk does not include information about the GPU used for this project. Therefore, I cannot determine which GPU was purchased.",
+      "elapsed_seconds": 3.735,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "no-match",
+      "use_memory": true,
+      "question": "Which GPU did we buy for this project?",
+      "selected_records": [
+        {
+          "id": "357611974f454648b4acbddf70f010db",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "shell",
+          "content": "Use PowerShell examples for this project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.742589+00:00",
+          "updated_at": "2026-10-16T22:56:31.742589+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 4
+        },
+        {
+          "id": "7ff1e471076346cfbd4cb33dea3419cb",
+          "scope": "project:reading-desk",
+          "kind": "handoff",
+          "key": "latest-session",
+          "content": "Export was verified. Restore rehearsal has not been tested. Next action: rehearse a restore into a separate disposable data directory.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "completed": [
+              "Export"
+            ],
+            "attempted": [],
+            "next_action": "Rehearse restore",
+            "reviewed": true
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.789147+00:00",
+          "updated_at": "2026-10-16T22:56:31.789147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "3f377b5febd545e3b1b855e1d05084cd",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "answer-style",
+          "content": "Prefer concise explanations, with steps when useful.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.757122+00:00",
+          "updated_at": "2026-10-16T22:56:31.757122+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "b630184dcdf74856bd458a9aba571a0b",
+          "scope": "project:reading-desk",
+          "kind": "decision",
+          "key": "project-name",
+          "content": "Shelf was the earlier name of Reading Desk. They are one project; Shelf is historical reference, not another outstanding project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "state": "confirmed",
+            "evidence": "Synthetic owner decision"
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.766628+00:00",
+          "updated_at": "2026-10-16T22:56:31.766628+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 1
+        }
+      ],
+      "answer": "The information provided does not include details about the GPU used for this project. Therefore, I cannot determine which GPU was purchased.",
+      "elapsed_seconds": 5.906,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "procedure",
+      "use_memory": false,
+      "question": "Which document-service version is recorded? Is its restore step confirmed?",
+      "selected_records": [],
+      "answer": "The provided saved reference data does not include any specific document-service version or confirmations for restore steps. Therefore, I cannot confirm the document-service version or the restore step status.",
+      "elapsed_seconds": 3.922,
+      "manual_verdict": "pending"
+    },
+    {
+      "id": "procedure",
+      "use_memory": true,
+      "question": "Which document-service version is recorded? Is its restore step confirmed?",
+      "selected_records": [
+        {
+          "id": "ae14d4775a644826aadd50d2601995f7",
+          "scope": "project:reading-desk",
+          "kind": "procedure",
+          "key": "document-service",
+          "content": "Approved routine for documenting a local service. Recall does not execute commands or confirm completed work.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "version": 2,
+            "steps": [
+              {
+                "instruction": "Record the service purpose",
+                "state": "confirmed",
+                "evidence": "Synthetic owner confirmed the purpose note exists"
+              },
+              {
+                "instruction": "Verify restore in a disposable workspace",
+                "state": "attempted",
+                "evidence": "Synthetic rehearsal started, outcome not confirmed"
+              },
+              {
+                "instruction": "Write the recovery instructions",
+                "state": "pending",
+                "evidence": ""
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.825146+00:00",
+          "updated_at": "2026-10-16T22:56:31.825146+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 5
+        },
+        {
+          "id": "7ff1e471076346cfbd4cb33dea3419cb",
+          "scope": "project:reading-desk",
+          "kind": "handoff",
+          "key": "latest-session",
+          "content": "Export was verified. Restore rehearsal has not been tested. Next action: rehearse a restore into a separate disposable data directory.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "completed": [
+              "Export"
+            ],
+            "attempted": [],
+            "next_action": "Rehearse restore",
+            "reviewed": true
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.789147+00:00",
+          "updated_at": "2026-10-16T22:56:31.789147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 3
+        },
+        {
+          "id": "3f377b5febd545e3b1b855e1d05084cd",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "answer-style",
+          "content": "Prefer concise explanations, with steps when useful.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.757122+00:00",
+          "updated_at": "2026-10-16T22:56:31.757122+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "357611974f454648b4acbddf70f010db",
+          "scope": "project:reading-desk",
+          "kind": "preference",
+          "key": "shell",
+          "content": "Use PowerShell examples for this project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {},
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.742589+00:00",
+          "updated_at": "2026-10-16T22:56:31.742589+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 2
+        },
+        {
+          "id": "6e2ae0c738154b6a9d3043b793c8e909",
+          "scope": "project:reading-desk",
+          "kind": "incident",
+          "key": "stopped-service",
+          "content": "A synthetic connection failed because the companion process was stopped. Starting the process restored access on the unchanged port 8765.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "environment": "Different synthetic incident",
+            "attempts": [
+              {
+                "action": "Start stopped process",
+                "outcome": "Access restored"
+              }
+            ]
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.814147+00:00",
+          "updated_at": "2026-10-16T22:56:31.814147+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 1
+        },
+        {
+          "id": "b630184dcdf74856bd458a9aba571a0b",
+          "scope": "project:reading-desk",
+          "kind": "decision",
+          "key": "project-name",
+          "content": "Shelf was the earlier name of Reading Desk. They are one project; Shelf is historical reference, not another outstanding project.",
+          "source": "Original synthetic book demonstration, 2026-10-16",
+          "metadata": {
+            "state": "confirmed",
+            "evidence": "Synthetic owner decision"
+          },
+          "revision": 1,
+          "created_at": "2026-10-16T22:56:31.766628+00:00",
+          "updated_at": "2026-10-16T22:56:31.766628+00:00",
+          "expires_at": null,
+          "selection_reason": "active preference/handoff or keyword overlap",
+          "score": 1
+        }
+      ],
+      "answer": "The document-service version recorded is [memory:ae14d4775a644826aadd50d2601995f7]. The restore step is confirmed as [memory:ae14d4775a644826aadd50d2601995f7].",
+      "elapsed_seconds": 15.656,
+      "manual_verdict": "pending"
+    }
+  ],
+  "finished_at": "2026-10-16T22:57:46.198230+00:00",
+  "weights_sha256": {
+    "model.safetensors": "f47f71177f32bcd101b7573ec9171e6a57f4f4d31148d38e382306f42996874b"
+  }
+}

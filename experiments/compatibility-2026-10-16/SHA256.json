@@ -1,0 +1,5 @@
+{
+  "local-model-evaluation-02.json": "41090bb822717d9ad3fffd743c044e9277adbdef3af005976293e25e6ebacf53",
+  "cpu-model-evaluation-01.json": "b15eb495101a2d7a180c21137e0ea60d1d8ad409e54de0391df2f55463d6cd47",
+  "ollama-native-evaluation-01.json": "6e7f175ddbf34b1f27b9077e99e41f807137184a0d47e5fe52db113a395e5994"
+}

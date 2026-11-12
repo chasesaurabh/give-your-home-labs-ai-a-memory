@@ -10,6 +10,8 @@ For a complete retained comparison, begin with the [November 12 memory study](..
 
 The separate [interface observations](../experiments/interface-workflows-2026-11-12/README.md) retain eight actual browser-displayed answers and their request context. They cover restart, forgetting, handoff review, new-incident comparison and command recall. Their prompts and conditions differ; the reported mistakes are examples to inspect, not comparable model scores.
 
+The [October compatibility records](../experiments/compatibility-2026-10-16/README.md) preserve the earlier native Ollama, CPU-only and compatible-service examples cited in the book. They retain their original outputs and metadata, including unfinished annotation fields; they are historical observations rather than current-code regression results or part of the matched four-model study.
+
 Configure a downloaded local model as described in [setup](setup.md), then run:
 
 ```powershell

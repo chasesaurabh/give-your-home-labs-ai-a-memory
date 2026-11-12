@@ -300,7 +300,7 @@ class Store:
             row = db.execute("SELECT * FROM proposals WHERE id=?", (identifier,)).fetchone()
             if not row:
                 raise ValueError("Proposal not found or already reviewed.")
-            if (datetime.now(timezone.utc) - datetime.fromisoformat(row["created_at"])).total_seconds() > 3600:
+            if approve and (datetime.now(timezone.utc) - datetime.fromisoformat(row["created_at"])).total_seconds() > 3600:
                 raise Conflict("Proposal expired; generate and review a fresh proposal.")
             result = self._put(db, **json.loads(row["payload"])) if approve else {"rejected": identifier}
             db.execute("DELETE FROM proposals WHERE id=?", (identifier,))
