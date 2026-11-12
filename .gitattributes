@@ -1,2 +1,5 @@
 * text=auto eol=lf
 *.png binary
+# Research payload hashes identify exact captured bytes on every platform.
+experiments/**/*.json -text
+experiments/**/*.jsonl -text
