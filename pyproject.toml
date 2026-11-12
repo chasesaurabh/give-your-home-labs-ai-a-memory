@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "homelab-memory-companion"
-version = "0.1.0"
+version = "0.2.0"
 description = "An inspectable local AI memory companion for preferences and projects"
 requires-python = ">=3.11"
 license = {text = "MIT"}

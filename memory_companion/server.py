@@ -68,7 +68,7 @@ def make_server(store, model, port=8765):
                     project = parse_qs(parsed.query).get("project", [None])[0]
                     self.send(200, {"version": __version__, "token": token, "projects": store.projects(),
                                     "memories": store.list(project, True) if project else [],
-                                    "proposals": store.proposals(), "model": model.info()})
+                                    "proposals": store.proposals(project) if project else [], "model": model.info()})
                 elif parsed.path == "/api/export":
                     if not secrets.compare_digest(self.headers.get("X-Companion-Token", ""), token):
                         raise PermissionError("Refresh the page before exporting.")

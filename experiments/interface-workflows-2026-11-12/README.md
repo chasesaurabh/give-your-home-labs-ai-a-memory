@@ -1,0 +1,13 @@
+# Inspectable interface observations
+
+These eight observations retain actual answers displayed by the local application on November 12, 2026, using original fictional records and local Qwen3.5 2B or 9B models. They complement the [matched memory study](../memory-study-2026-11-12/README.md); they are not another balanced benchmark or an estimate of general reliability.
+
+`observations.json` contains each displayed answer, its question, selected records, actual inspectable request messages, citation-ID result and separately labeled manual observations. This is a projection from captured browser accessibility text, not a raw model-server response. Browser chrome and unrelated editor state are omitted. Original-capture hashes identify the source observations; the original captures and databases are not distributed. `SHA256.json` identifies the distributed payload.
+
+The adapter requested temperature 0, at most 1,600 output tokens and non-thinking generation through vLLM 0.30.0. Model identities, downloaded artifact revisions and runtime details are in the main study and repository configuration. The 2B default-launcher exercise used the documented 0.85 GPU allocation fraction; the 9B workflow server used 0.22. These are allocation settings, not measured minimum hardware requirements. There are no latency or token-count claims for these interface captures.
+
+Each question used selected saved records without previous conversation history. The observations include retained mistakes: a wrong command explanation, a forgotten theme replaced by an invented interpretation, an unsupported claim about incident symptoms, missing citation markers, and an overstatement of pending work. The procedure question explicitly cautioned against interpreting missing progress as proof that work never happened, so its result cannot be substituted for a differently prompted earlier run.
+
+For the 9B sequence, all exported projects, aliases and memory fields were compared before and after the read-only questions and draft; they were unchanged. The user then reviewed and explicitly saved a shortened handoff and added a synthetic command-recall procedure. Asking about that procedure changed none of those fields. This verifies the stated storage boundary, not unrelated operating-system activity. The companion has no shell-execution tool.
+
+Manual observations are AI-assisted semantic review, not independent human ground truth. Inspect the full request and answer before accepting a conclusion. The permissive identifier checker can accept an answer with no citations; its result never certifies that every claim is supported.

@@ -2,7 +2,7 @@
 
 Build a local assistant that carries selected preferences and project context into a fresh conversation. Inspect what it remembers, see what was supplied to the model, and correct or forget records deliberately.
 
-Companion code for [Give Your Home Lab’s AI a Memory](https://www.amazon.com/dp/B0HNFNC4M3) by Saurabh Chase. The first-edition code is frozen as [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0); use that edition reference for the printed examples. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
+Companion code for [Give Your Home Lab’s AI a Memory](https://www.amazon.com/dp/B0HNFNC4M3) by Saurabh Chase. Match the code reference printed in your copy. The first edition uses the preserved [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0). The second-edition code snapshot is `book-v2.0.0`, with application version 0.2.0 and expanded model setup and evaluation tools. A code release does not establish availability of a retail book edition. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
 
 ![The real Memory Companion answering a project-handoff question with a local model and synthetic records](docs/images/project-handoff.jpg)
 
@@ -51,7 +51,17 @@ The main source is in `memory_companion/`: `store.py` owns lifecycle and retriev
 
 Run all eighteen disposable chapter checkpoints with `py -3.11 examples/chapter_lab.py --all`, or replace `--all` with one chapter number. These assert specific storage and application properties without calling a model. `examples/memory_agent.py` adds an optional local tool-calling example limited to scoped recall, with no memory writes or shell execution. `examples/evaluate_cpu.py` is a separate optional CPU experiment with pinned Qwen3-0.6B weights; it requires extra libraries and preserves actual outputs, including failures. See [evaluation examples](docs/evaluation.md).
 
-Tests using a model double prove integration behavior, not model answer quality. The [version matrix](docs/version-matrix.md) identifies direct verification and pending engine/platform coverage. The large development checkpoint is not a minimum reader hardware recommendation. [BOOK_EDITION.json](BOOK_EDITION.json) maps all eighteen chapters to their labs and source files. Application package version 0.1.0 and first-edition book tag book-v1.0.0 identify different things.
+Tests using a model double prove integration behavior, not model answer quality. The [version matrix](docs/version-matrix.md) identifies direct verification and platform limits. The large development checkpoint is not a minimum reader hardware recommendation. The [chapter guide](docs/chapter-guide.md) maps all eighteen chapters to their labs and source files. This checkout is application version 0.2.0; the preserved first-edition tag `book-v1.0.0` contains application version 0.1.0. See the [code changes](CHANGELOG.md) before updating an existing workspace.
+
+## Inspect the actual research
+
+The [four-model memory study](experiments/memory-study-2026-11-12/README.md) retains 384 baseline responses and 96 sampling-sensitivity responses from 2B, 9B, 27B and 122B configurations, plus actual extraction/recall traces for 9B and 122B. It separates retrieval coverage, requested-fact recovery, unsupported additions and citation errors. Original failures remain available alongside successes.
+
+```powershell
+py -3.11 examples/summarize_study.py
+```
+
+That command verifies evidence hashes and recalculates measurements without a GPU. Follow [setup](docs/setup.md) to acquire a locked local model and reproduce requests. These synthetic application checks are not a general model ranking. Model weights are downloaded separately under their own licenses.
 
 ## Data boundary
 

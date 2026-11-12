@@ -239,6 +239,7 @@ function reset() {
   $("revision").value = "0";
   $("memory-key").disabled = false;
   $("kind").disabled = false;
+  $("metadata-json").disabled = false;
   $("memory-scope").disabled = false;
   $("editor-title").textContent = "Save something worth remembering";
 }
@@ -252,6 +253,8 @@ function edit(m) {
   $("memory-scope").disabled = true;
   $("content").value = m.content;
   $("source").value = m.source;
+  $("metadata-json").value = JSON.stringify(m.metadata, null, 2);
+  $("metadata-json").disabled = m.kind === "procedure";
   $("revision").value = m.revision;
   $("expiry").value = m.expires_at
     ? new Date(
@@ -272,6 +275,10 @@ function edit(m) {
 $("project").onchange = () => {
   viewEpoch++;
   reset();
+  // Never leave another project's editable cards visible while fetching this one.
+  $("memories").replaceChildren(node("p", "Loading selected project…", "hint"));
+  $("proposals").replaceChildren();
+  $("memory-count").textContent = "…";
   $("answers").replaceChildren();
   $("selection").textContent = "Project changed. No request yet.";
   refresh().catch((e) => notice(e.message, true));
@@ -299,7 +306,19 @@ $("memory-form").onsubmit = async (e) => {
   e.preventDefault();
   try {
     const kind = $("kind").value;
-    let metadata = editing ? structuredClone(editing.metadata) : {};
+    let metadata;
+    if (kind === "procedure") {
+      metadata = editing ? structuredClone(editing.metadata) : {};
+    } else {
+      try {
+        metadata = JSON.parse($("metadata-json").value || "{}");
+      } catch {
+        throw new Error("Structured details must be valid JSON. Nothing was saved.");
+      }
+      if (metadata === null || Array.isArray(metadata) || typeof metadata !== "object") {
+        throw new Error("Structured details must be a JSON object. Nothing was saved.");
+      }
+    }
     if (kind === "procedure") {
       const lines = $("procedure-steps")
         .value.split("\n")
@@ -340,6 +359,9 @@ $("memory-form").onsubmit = async (e) => {
   }
 };
 $("reset-memory").onclick = reset;
+$("kind").onchange = () => {
+  $("metadata-json").disabled = $("kind").value === "procedure";
+};
 async function ask(inspectOnly = false) {
   const requestEpoch = viewEpoch;
   const requestProject = project();

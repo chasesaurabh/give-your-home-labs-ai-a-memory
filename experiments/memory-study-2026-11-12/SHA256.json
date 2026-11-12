@@ -1,0 +1,100 @@
+{
+  "files": [
+    {
+      "path": "prepared.json",
+      "sha256": "fb19a4990868457e705a886f79b42fc97adaef04345a31ab0a95a0e34eb8a801",
+      "bytes": 293861,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "sensitivity-prepared.json",
+      "sha256": "11820735196fa6a8b820d7f7df84d84265c0d7df8c5ae00b1b2770f62b8fd298",
+      "bytes": 87513,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "baseline/2b.jsonl",
+      "sha256": "e92384a32907da8086735a8c78b52dad17511512fed05466b010851f669c71fd",
+      "bytes": 338525,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "sensitivity/2b.jsonl",
+      "sha256": "179573f10d2de0426c7354d94e5f0a6231c59f3370d886dda92b2fae1dcffe26",
+      "bytes": 93567,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "baseline/9b.jsonl",
+      "sha256": "4fdd9e4ef8ff5abcc50184c5c17e1b7d9a211b536c60d93fc8cf54f489cf3a66",
+      "bytes": 344124,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "sensitivity/9b.jsonl",
+      "sha256": "fd863c56db914c1aac0e94afc25f037bdb1cbda8d0f90b319a6a1834b614eeab",
+      "bytes": 94252,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "baseline/27b.jsonl",
+      "sha256": "bad04e5bc7c700036edcb7a8f9c750a96ea3b5285c575c496dd9ac5841701923",
+      "bytes": 345620,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "sensitivity/27b.jsonl",
+      "sha256": "10950a0601e53bdf2621cdd3dcf3d8a122fdffe96963e081742a211703cdeba3",
+      "bytes": 94821,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "baseline/122b.jsonl",
+      "sha256": "5466d3df4273d2d046166ec20c1ecc93980b3bdadd274ae81f86ce5ea772d1c5",
+      "bytes": 346604,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "sensitivity/122b.jsonl",
+      "sha256": "493adf550da3be538721825803784de3a6a449018a78dcfda888967bb98027c1",
+      "bytes": 94984,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "workflows/9b.jsonl",
+      "sha256": "9f4d309bb128b8e554f6c9cff7b5d13a93de25a0cbc75e9aebd63405b118ad40",
+      "bytes": 107972,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "workflows/9b-cases.json",
+      "sha256": "79309c35ae75439275be02ed71f1f954f5e8cb3a23e12b8205a37cf0735e513a",
+      "bytes": 3327,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "workflows/122b.jsonl",
+      "sha256": "72e4e5c82b5286ef94ef3aa9c04c428d811200bade01123cb1b9016283c07d94",
+      "bytes": 108759,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "workflows/122b-cases.json",
+      "sha256": "79309c35ae75439275be02ed71f1f954f5e8cb3a23e12b8205a37cf0735e513a",
+      "bytes": 3327,
+      "provenance": "Original synthetic request/response evidence; copied byte-for-byte"
+    },
+    {
+      "path": "case-annotations.json",
+      "sha256": "1b3c97138898bebab146b8781b43b561a64213226456bda61ee49a802a356af1",
+      "bytes": 128207,
+      "provenance": "Technical case annotations derived from manual reading; excludes provisional overall safety scores"
+    },
+    {
+      "path": "sensitivity-annotations.json",
+      "sha256": "4580fe6ee98c87ecd0a332089aae92dd056efbdd3e047ab101960ace52a21e1e",
+      "bytes": 27300,
+      "provenance": "Technical sensitivity annotations; all seeds retained"
+    }
+  ]
+}

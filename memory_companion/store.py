@@ -12,6 +12,7 @@ import uuid
 KINDS = {"preference", "decision", "handoff", "incident", "procedure"}
 SLUG = re.compile(r"[a-z0-9][a-z0-9_-]{0,79}\Z")
 FORMAT = "homelab-memory-v1"
+_UNSPECIFIED = object()
 
 
 class Conflict(ValueError):
@@ -261,10 +262,16 @@ class Store:
         return {"records": selected, "excluded": excluded, "characters": used, "budget": budget,
                 "project": self.resolve(project)}
 
-    def propose(self, fields):
+    def propose(self, fields, *, expected_id=_UNSPECIFIED):
         # Validate against current state in a transaction, then roll back the trial write.
         with self.db() as db:
             db.execute("BEGIN IMMEDIATE")
+            if expected_id is not _UNSPECIFIED:
+                scope = self.scope(fields["scope"], db)
+                current = db.execute("SELECT id FROM memories WHERE scope=? AND kind=? AND key=?",
+                                     (scope, fields["kind"], fields["key"])).fetchone()
+                if (current["id"] if current else None) != expected_id:
+                    raise Conflict("This memory changed while the suggestion was generated. Inspect it and try again.")
             db.execute("SAVEPOINT trial")
             self._put(db, **fields)
             db.execute("ROLLBACK TO trial")
@@ -273,10 +280,17 @@ class Store:
             db.execute("INSERT INTO proposals VALUES(?,?,?)", (identifier, json.dumps(fields, allow_nan=False), now()))
         return {"id": identifier, "fields": fields, "status": "pending_review"}
 
-    def proposals(self):
+    def proposals(self, project=None):
         with self.db() as db:
-            return [{"id": row["id"], "fields": json.loads(row["payload"]), "created_at": row["created_at"]}
-                    for row in db.execute("SELECT * FROM proposals ORDER BY created_at")]
+            candidates = [{"id": row["id"], "fields": json.loads(row["payload"]), "created_at": row["created_at"]}
+                          for row in db.execute("SELECT * FROM proposals ORDER BY created_at")]
+            if project is None:
+                return candidates
+            scope = "project:" + self.resolve(project, db)
+            # Scope is a view boundary, not multiuser authorization. Resolve older
+            # candidate aliases just as approved records are resolved on write.
+            return [candidate for candidate in candidates
+                    if self.scope(candidate["fields"]["scope"], db) in {"global", scope}]
 
     def review(self, identifier, approve):
         if type(approve) is not bool:
@@ -308,6 +322,8 @@ class Store:
 
     def export(self):
         with self.db() as db:
+            # All collections must describe one read snapshot, including with WAL writers.
+            db.execute("BEGIN")
             return {"format": FORMAT, "exported_at": now(),
                     "projects": [dict(row) for row in db.execute("SELECT * FROM projects ORDER BY id")],
                     "aliases": [dict(row) for row in db.execute("SELECT * FROM aliases ORDER BY alias")],

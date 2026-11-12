@@ -31,16 +31,52 @@ py -3.11 -m memory_companion --data data/demo.sqlite serve
 
 This small checkpoint was directly exercised on a CPU-only isolated Ollama 0.40.5 service. It recovered the shell preference but produced citation failures and an invalid proposal key. It is a connection example, not a quality recommendation for every workflow. Retain explicit saves, evaluate actual outputs, and choose an appropriate downloaded model for your tasks. The [version matrix](version-matrix.md) records the digest and limits.
 
-For a local compatible inference service, set these before launching; replace the port and model with the ones your actual local server exposes:
+## Start a locked GPU model with Docker
+
+This path uses the repository's pinned model files and vLLM image. It requires working Docker Linux containers with NVIDIA GPU access; installing Docker and a compatible driver is a separate prerequisite. The helpers verify identities, bind to loopback and retain initialization evidence. They do not turn an incompatible GPU into a supported one. Start with the 2B profile before trying the larger checkpoints.
+
+The actual fresh 2B download contained twelve files totaling 4,571,272,453 bytes. Image storage, temporary files, loaded weights, KV cache and the host application require additional space. Review the model license before downloading. From the repository root:
+
+```powershell
+py -3.11 examples/fetch_model.py 2b --destination models/qwen35-2b
+$engine = 'vllm/vllm-openai@sha256:' + `
+  '8a69ffad015f138d7170c4ddc429e230a3bc1c1719f67e14324749df200a4b90'
+docker pull $engine
+py -3.11 examples/serve_model.py 2b `
+  --model-dir models/qwen35-2b --name memory-model-2b `
+  --memory-fraction 0.85 --tools `
+  --evidence data/startup-2b-01.json
+```
+
+The 0.85 fraction asks the engine to use 85 percent of its device-memory budget. It is a cap configuration, not a measured minimum; another process using the GPU can make startup fail. The main 2B comparison used 0.09 on the large workstation. A separate first-use check exercised the 0.85 setting above, received the exact READY probe and completed browser inference. Do not reuse 0.09 on a smaller GPU merely because it worked here: the same fraction corresponds to a different amount of memory. The tested profiles and actual resource context are in the [study methods](../experiments/memory-study-2026-11-12/README.md).
+
+Wait for the advertised model and the short `READY` probe. Initialization can take minutes, especially for a large checkpoint. The helper leaves the container in place if observation times out; inspect it before retrying:
+
+```powershell
+docker ps -a --filter name=memory-model-2b
+docker logs --tail 50 memory-model-2b
+```
+
+Do not start a duplicate just because one observation expired. A retry uses a new evidence filename and an unused container name after you understand the earlier state. The launcher refuses to replace an existing container. Model files are mounted read-only and used offline after acquisition.
+
+Once the server advertises `memory-2b`, configure the companion in its own terminal:
 
 ```powershell
 $env:MEMORY_BACKEND = 'compatible'
-$env:MEMORY_MODEL_URL = 'http://127.0.0.1:8100/v1'
-$env:MEMORY_MODEL = 'nemotron-super-120b-fp4'
+$env:MEMORY_MODEL_URL = 'http://127.0.0.1:18106'
+$env:MEMORY_MODEL = 'memory-2b'
 py -3.11 -m memory_companion --data data/demo.sqlite serve
 ```
 
-The displayed model/port above identify the directly tested development server. They do not install that server or establish a reader's required model size. Model server setup and model licensing are separate from this application. No cloud API key or paid inference service is required. Check [local-only behavior](local-only.md) and the [version matrix](version-matrix.md) for the exact evidence boundary.
+Select Reading Desk and ask which shell examples should use. Inspect the supplied record IDs as well as the answer. The actual isolated-package check recovered PowerShell with memory enabled but invented Bash/project details with it disabled. A successful connection is not an answer-quality pass.
+
+The browser, companion process and model container have separate lifetimes. Closing the browser stops neither server. Keep the model running while practicing; Ctrl+C stops the companion. When finished with inference:
+
+```powershell
+docker stop memory-model-2b
+```
+
+Your downloaded weights and saved database remain. An existing stopped container can be started again with `docker start memory-model-2b`; inspect its logs and advertised models before asking the companion for a response. Use the profile's exact files and the [model lock](../configs/model-artifacts.lock.json) when moving to 9B, 27B or 122B. The 122B NVFP4 configuration is hardware-specific; it is not the required reader starting point. No cloud API key or paid inference service is used in this path. See [local-only behavior](local-only.md) for limits of a loopback address.
 
 ## Read, save, correct, and forget
 

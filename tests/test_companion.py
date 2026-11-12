@@ -296,6 +296,27 @@ class ServerTests(unittest.TestCase):
         with self.assertRaises(HTTPError):
             self.request("/api/export", headers={"X-Companion-Token": ""})
 
+    def test_pending_proposals_follow_selected_project_and_alias(self):
+        self.store.project("reading-desk", "Reading Desk", ["shelf"])
+        self.store.project("lab-journal", "Lab Journal")
+        def propose(scope, key):
+            return self.store.propose(dict(scope=scope, kind="preference", key=key,
+                content="Original synthetic candidate", source="Explicit test statement"))["id"]
+        own = propose("project:shelf", "reader-style")
+        other = propose("project:lab-journal", "journal-style")
+        shared = propose("global", "shared-style")
+        for selected, expected in [("reading-desk", {own, shared}),
+                                   ("shelf", {own, shared}),
+                                   ("lab-journal", {other, shared})]:
+            with self.subTest(selected=selected):
+                visible = self.request("/api/state?project=" + selected)["proposals"]
+                self.assertEqual({p["id"] for p in visible}, expected)
+        self.assertEqual(self.request("/api/state")["proposals"], [])
+        # Changing the view must not delete hidden candidates or approve them.
+        self.assertEqual({p["id"] for p in self.store.proposals()}, {own, other, shared})
+        self.assertEqual(self.store.list("reading-desk"), [])
+        self.assertEqual(self.store.list("lab-journal"), [])
+
     def test_chat_memory_toggle_changes_actual_model_input(self):
         self.store.put(scope="project:reading-desk", kind="preference", key="style", content="SYNTHETIC_PREFERENCE", source="test")
         first = self.request("/api/chat", {"project": "reading-desk", "question": "Explain this", "use_memory": True})

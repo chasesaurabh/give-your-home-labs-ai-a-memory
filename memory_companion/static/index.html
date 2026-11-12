@@ -161,7 +161,13 @@
                 placeholder="Explicit instruction, reviewed today"
             /></label>
             <details>
-              <summary>Optional expiry and procedure steps</summary>
+              <summary>Structured details, expiry and procedure steps</summary>
+              <label for="metadata-json">Structured details (JSON)</label>
+              <textarea id="metadata-json" rows="8" maxlength="20000">{}</textarea>
+              <p class="hint" id="metadata-help">
+                Keep these details consistent with the readable statement.
+                For procedures, use the version, instruction and progress controls instead.
+              </p>
               <label
                 >Expires at<input id="expiry" type="datetime-local" /></label
               ><label

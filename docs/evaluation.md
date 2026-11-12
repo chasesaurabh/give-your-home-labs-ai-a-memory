@@ -4,6 +4,12 @@ From the source checkout, `py -3.11 examples/chapter_lab.py --all` runs eighteen
 
 ## Collect actual local answers
 
+For a complete retained comparison, begin with the [November 12 memory study](../experiments/memory-study-2026-11-12/README.md). It contains all 384 main responses, 96 exploratory sensitivity responses and both 18-case workflow runs. `py -3.11 examples/summarize_study.py` verifies its payload hashes and recalculates mechanical measurements without inference. AI-assisted manual annotations remain separate from the original outputs and from citation-ID membership.
+
+`examples/memory_study.py` collects the three-condition comparison, `examples/sampling_sensitivity.py` retains every declared seed, and `examples/evaluate_workflows.py` records actual preference extraction and scoped recall calls. Follow each script's help and use fresh output directories. Do not call successful tool parsing or a correct ID an answer-quality pass.
+
+The separate [interface observations](../experiments/interface-workflows-2026-11-12/README.md) retain eight actual browser-displayed answers and their request context. They cover restart, forgetting, handoff review, new-incident comparison and command recall. Their prompts and conditions differ; the reported mistakes are examples to inspect, not comparable model scores.
+
 Configure a downloaded local model as described in [setup](setup.md), then run:
 
 ```powershell

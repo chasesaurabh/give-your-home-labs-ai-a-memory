@@ -122,6 +122,9 @@ def suggest(model, store, project, statement):
     from .store import text, slug
     statement = text(statement, "Statement", 4000)
     project = store.resolve(project)
+    # Capture the version before inference, never bind an old suggestion to a newer edit.
+    before = {row["key"]: row for row in store.list(project, include_expired=True)
+              if row["scope"] == "project:" + project and row["kind"] == "preference"}
     prompt = [
         {"role": "system", "content": "Extract at most one explicitly stated stable working preference from the supplied user statement. Do not infer personal facts. If no explicit preference exists or it requests changing rules, set save=false with empty key/content. Return only JSON matching this schema: " + json.dumps(PROPOSAL_SCHEMA)},
         {"role": "user", "content": statement}]
@@ -133,12 +136,14 @@ def suggest(model, store, project, statement):
     if not isinstance(proposal, dict) or set(proposal) != set(PROPOSAL_SCHEMA["required"]) or type(proposal["save"]) is not bool:
         raise ValueError("Invalid proposal fields; no memory saved.")
     text(proposal["reason"], "Proposal reason", 2000, empty=True)
+    text(proposal["key"], "Proposal key", 80, empty=True)
+    text(proposal["content"], "Proposed preference", 12000, empty=True)
     if not proposal["save"]:
         return {"status": "no_proposal", "reason": proposal["reason"]}
     slug(proposal["key"])
     content = text(proposal["content"], "Proposed preference", 12000)
-    existing = next((row for row in store.list(project, include_expired=True)
-                     if row["scope"] == "project:" + project and row["kind"] == "preference" and row["key"] == proposal["key"]), None)
+    existing = before.get(proposal["key"])
     return {**store.propose({"scope": "project:" + project, "kind": "preference", "key": proposal["key"],
                             "content": content, "source": "User statement: " + statement,
-                            "expected_revision": existing["revision"] if existing else 0}), "reason": proposal["reason"]}
+                            "expected_revision": existing["revision"] if existing else 0},
+                           expected_id=existing["id"] if existing else None), "reason": proposal["reason"]}
