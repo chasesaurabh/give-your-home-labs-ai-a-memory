@@ -2,7 +2,7 @@
 
 Build a local assistant that carries selected preferences and project context into a fresh conversation. Inspect what it remembers, see what was supplied to the model, and correct or forget records deliberately.
 
-Companion code for [Give Your Home Lab’s AI a Memory](https://www.amazon.com/dp/B0HNFNC4M3) by Saurabh Chase. Match the code reference printed in your copy. The first edition uses the preserved [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0). The second-edition code snapshot is `book-v2.0.0`, with application version 0.2.0 and expanded model setup and evaluation tools. A code release does not establish availability of a retail book edition. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
+Companion code for [Give Your Home Lab’s AI a Memory, second edition](https://www.amazon.com/dp/B0HRSJTC2R) by Saurabh Chase, available in [Kindle](https://www.amazon.com/dp/B0HRSJTC2R) and [paperback](https://www.amazon.com/dp/B0HRSDRZQX). Match the code reference printed in your copy. The first edition uses the preserved [`book-v1.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v1.0.0). The second edition uses [`book-v2.0.0`](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory/releases/tag/book-v2.0.0), with application version 0.2.0 and expanded model setup and evaluation tools. Original companion code and synthetic fixtures are MIT licensed. The separately published manuscript and artwork are not part of that grant.
 
 ![The real Memory Companion answering a project-handoff question with a local model and synthetic records](docs/images/project-handoff.jpg)
 
@@ -67,7 +67,7 @@ That command verifies evidence hashes and recalculates measurements without a GP
 
 Do not commit user memories, databases, exports, backups, credentials, private logs, model weights, or book prose. Examples use original synthetic values. Forget in the storage example means logical removal from lookup; no physical-media erasure guarantee is made.
 
-The first edition cites the immutable code release with the tested versions and chapter map. Development on the default branch can change. Read the [Kindle edition](https://www.amazon.com/dp/B0HNFNC4M3) or choose the paperback from its Amazon listing.
+Use the immutable code release cited in your edition for its tested versions and chapter map. Development on the default branch can change. Read the second edition in [Kindle](https://www.amazon.com/dp/B0HRSJTC2R) or [paperback](https://www.amazon.com/dp/B0HRSDRZQX).
 
 See [LICENSE](LICENSE), [SECURITY.md](SECURITY.md), [third-party notices](THIRD_PARTY_NOTICES.md), and [contribution guidance](CONTRIBUTING.md). Installed model weights and runtimes retain their own licenses.
 
