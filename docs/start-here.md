@@ -15,7 +15,7 @@ I've written these books to help you understand AI systems and build practical p
 | Work with private images, documents, screenshots, and video | [Give Your Home Lab Eyes with AI](https://www.amazon.com/dp/B0HR2TDZJS) | [Vision companion](https://github.com/chasesaurabh/give-your-home-lab-eyes-with-ai) |
 | Build voice, transcription, narration, and bounded assistant workflows | [Build a Home Lab That Listens and Responds](https://www.amazon.com/dp/B0HRHJ98ZC) | [Voice companion](https://github.com/chasesaurabh/build-a-home-lab-that-listens-and-responds) |
 | Give a local assistant inspectable preferences and project context | [Give Your Home Lab’s AI a Memory](https://www.amazon.com/dp/B0HRSJTC2R) | [Memory Companion](https://github.com/chasesaurabh/give-your-home-labs-ai-a-memory) |
-| Move from proposals to approved actions with verification and recovery | [Make Your Home Lab Do Things for You](https://www.amazon.com/dp/B0HP7C83W8) | [Maintenance Desk](https://github.com/chasesaurabh/make-your-home-lab-do-things-for-you) |
+| Move from proposals to approved actions with verification and recovery | [Make Your Home Lab Do Things for You](https://www.amazon.com/dp/B0HS96GM7J) | [Maintenance Desk](https://github.com/chasesaurabh/make-your-home-lab-do-things-for-you) |
 | Build datasets, train LoRA/QLoRA adapters, and evaluate custom models | [Fine-Tune LLMs in Your Home Lab](https://www.amazon.com/dp/B0HKF3J1L7) | No public companion repository linked |
 
 ## Try a companion before choosing a book
